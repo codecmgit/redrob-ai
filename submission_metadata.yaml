@@ -1,0 +1,31 @@
+# Redrob Hackathon — Submission Metadata
+team_name: "Synapse Syndicate"
+
+primary_contact:
+  name: "Chirashree Mallick"
+  email: "mallickchirashree@gmail.com"
+  phone: "+91-9875404009"
+
+team_members:
+  - name: "Chirashree Mallick"
+    email: "mallickchirashree@gmail.com"
+    role: "ML Engineer"
+  - name: "Barsha Patra"
+    email: "pbarsha718@gmail.com"
+    role: "ML Engineer"  
+
+github_repo: "https://github.com/codecmgit/redrob-ai.git"
+sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker" # Streamlit or HuggingFace space link
+
+methodology_summary: |
+  Two-stage retrieval and ranking model engineered for CPU efficiency. Stage 1 applies a lightweight 
+  sentence-transformer model along with explicit timeline evaluation filters to neutralize 
+  impossible synthetic data honeypots and keyword-stuffer traps. Stage 2 applies a non-linear 
+  behavioral-signal multiplier assessing recruiter response rates and platform activity metrics.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
