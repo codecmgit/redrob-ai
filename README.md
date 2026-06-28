@@ -6,37 +6,69 @@ A production-grade, CPU-optimized, two-stage intelligence engine engineered for 
 
 # 📊 Pipeline System Architecture
 
-[ Raw Input Data: candidates.jsonl ]
-                  │
-                  ▼
-┌────────────────────────────────────────────────────────┐
-│ STAGE 1: Offline Anti-Trap & Constraint Filtering      │
-│                                                        │
-│ • Timeline validation drops impossible honeypots       │
-│ • Hard filters for target geographies and YOE          │
-│ • Reduces processing space from 100K to ~1,000         │
-└────────────────────────────────────────────────────────┘
-                  │
-                  ▼
-┌────────────────────────────────────────────────────────┐
-│ STAGE 2: Local Semantic Search & Signal Blending       │
-│                                                        │
-│ • Fast CPU embeddings via all-MiniLM-L6-v2             │
-│ • Cosine similarity against job intent                 │
-│ • Behavioral signal weighting and score blending       │
-└────────────────────────────────────────────────────────┘
-                  │
-                  ▼
-┌────────────────────────────────────────────────────────┐
-│ STAGE 3: Post-Processing & Compliance Validation       │
-│                                                        │
-│ • Alphabetical tie-breaking                            │
-│ • Deterministic reasoning generation                   │
-│ • Submission format verification                       │
-└────────────────────────────────────────────────────────┘
-                  │
-                  ▼
-[ Verified Deliverables: synapse_syndicate.csv & synapse_syndicate.xlsx ]
+Raw Input Data (candidates.jsonl)
+                │
+                ▼
+┌──────────────────────────────────────────────┐
+│ Stage 1: Anti-Trap & Constraint Filtering    │
+├──────────────────────────────────────────────┤
+│ • Timeline validation                        │
+│ • Honeypot detection                         │
+│ • Geography filtering                        │
+│ • Experience filtering                       │
+└──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────┐
+│ Stage 2: Semantic Search & Scoring           │
+├──────────────────────────────────────────────┤
+│ • MiniLM embedding generation                │
+│ • Cosine similarity matching                 │
+│ • Behavioral signal blending                 │
+└──────────────────────────────────────────────┘
+                │
+                ▼
+┌──────────────────────────────────────────────┐
+│ Stage 3: Ranking & Validation                │
+├──────────────────────────────────────────────┤
+│ • Candidate ranking                          │
+│ • Tie breaking                               │
+│ • Reason generation                          │
+│ • Output validation                          │
+└──────────────────────────────────────────────┘
+                │
+                ▼
+
+Generated Deliverables:
+├── synapse_syndicate_output.csv
+└── synapse_syndicate_output.xlsx
+
+---
+
+# 📁 Project Structure
+
+redrob-ai/
+│
+├── preprocess.py
+│   └── Honeypot detection and filtering
+│
+├── rank.py
+│   └── Semantic ranking and score blending
+│
+├── main.py
+│   └── Pipeline entrypoint
+│
+├── app.py
+│   └── Streamlit dashboard
+│
+├── requirements.txt
+│   └── Project dependencies
+│
+├── submission_metadata.yaml
+│   └── Submission details
+│
+└── README.md
+    └── Project documentation
 
 ---
 
@@ -122,21 +154,6 @@ Spreadsheet version matching the CSV output for backup and review purposes.
 
 ---
 
-# 📁 Project Structure
-
-redrob-ai/
-│
-├── preprocess.py             # Honeypot detection and filtering
-├── rank.py                   # Semantic ranking and signal blending
-├── main.py                   # Pipeline entrypoint
-├── app.py                    # Streamlit sandbox dashboard
-│
-├── requirements.txt          # Dependency definitions
-├── submission_metadata.yaml  # Team and submission metadata
-└── README.md                 # Project documentation
-
----
-
 # 🔍 Processing Workflow
 
 1. Load candidate dataset from compressed JSONL source.
@@ -165,7 +182,7 @@ redrob-ai/
 
 # 👨‍💻 Developed By
 
-**Team Name:** [Synapse Syndicate]
+**Team Name:** Synapse Syndicate
 
 **Hackathon:** Redrob INDIA RUNS Hackathon
 
