@@ -5,7 +5,7 @@ from rank import compute_composite_scores, generate_submission_files
 
 def main():
     input_data_path = "candidates.jsonl" 
-    output_filename = "synapse_syndicate_output" 
+    output_filename = "output" 
     
     job_description = """
     Looking for a Senior AI/ML Engineer with 5-9 years of experience. 

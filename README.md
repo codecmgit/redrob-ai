@@ -50,8 +50,8 @@ Candidates are ranked using the blended relevance score and validated against ha
 
 The pipeline automatically generates:
 
-* `synapse_syndicate_output.csv`
-* `synapse_syndicate_output.xlsx`
+* `output.csv`
+* `output.xlsx`
 
 Both files are validated to ensure compliance with the competition submission requirements.
 
@@ -150,7 +150,7 @@ py -m streamlit run app.py
 
 The pipeline automatically generates and validates the following submission files:
 
-### 📄 YOUR_PARTICIPANT_ID.csv
+### 📄 output.csv
 
 Competition-compliant output containing:
 
@@ -160,7 +160,7 @@ Competition-compliant output containing:
 * Deterministic scoring
 * Generated reasoning summaries
 
-### 📊 YOUR_PARTICIPANT_ID.xlsx
+### 📊 output.xlsx
 
 Spreadsheet version matching the CSV output for backup and review purposes.
 
@@ -194,7 +194,7 @@ Spreadsheet version matching the CSV output for backup and review purposes.
 
 # 👨‍💻 Developed By
 
-**Team Name:** Synapse Syndicate
+**Name:** Chirashree Mallick
 
 **Hackathon:** Redrob INDIA RUNS Hackathon
 
