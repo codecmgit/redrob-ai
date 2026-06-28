@@ -4,44 +4,56 @@ A production-grade, CPU-optimized, two-stage intelligence engine engineered for 
 
 ---
 
-# 📊 Pipeline System Architecture
+# 📊 Pipeline Workflow
 
-Raw Input Data (candidates.jsonl)
-                │
-                ▼
-┌──────────────────────────────────────────────┐
-│ Stage 1: Anti-Trap & Constraint Filtering    │
-├──────────────────────────────────────────────┤
-│ • Timeline validation                        │
-│ • Honeypot detection                         │
-│ • Geography filtering                        │
-│ • Experience filtering                       │
-└──────────────────────────────────────────────┘
-                │
-                ▼
-┌──────────────────────────────────────────────┐
-│ Stage 2: Semantic Search & Scoring           │
-├──────────────────────────────────────────────┤
-│ • MiniLM embedding generation                │
-│ • Cosine similarity matching                 │
-│ • Behavioral signal blending                 │
-└──────────────────────────────────────────────┘
-                │
-                ▼
-┌──────────────────────────────────────────────┐
-│ Stage 3: Ranking & Validation                │
-├──────────────────────────────────────────────┤
-│ • Candidate ranking                          │
-│ • Tie breaking                               │
-│ • Reason generation                          │
-│ • Output validation                          │
-└──────────────────────────────────────────────┘
-                │
-                ▼
+### Stage 1: Anti-Trap & Constraint Filtering
 
-Generated Deliverables:
-├── synapse_syndicate_output.csv
-└── synapse_syndicate_output.xlsx
+The candidate dataset is first validated to identify and remove suspicious or synthetic profiles.
+**Operations performed:**
+* Timeline validation
+* Honeypot detection
+* Geography filtering
+* Years-of-experience filtering
+**Outcome:** Reduces the search space from approximately 100,000 profiles to a manageable pool of highly relevant candidates.
+
+---
+
+### Stage 2: Semantic Search & Signal Blending
+
+Eligible candidates are evaluated against the target job requirements using local semantic embeddings.
+
+**Operations performed:**
+* MiniLM embedding generation (`all-MiniLM-L6-v2`)
+* Cosine similarity matching
+* Behavioral signal weighting
+* Composite score calculation
+
+**Behavioral signals include:**
+* Recruiter response rate
+* Interview completion rate
+* Platform engagement indicators
+
+---
+
+### Stage 3: Ranking & Validation
+
+Candidates are ranked using the blended relevance score and validated against hackathon submission rules.
+**Operations performed:**
+* Candidate ranking
+* Deterministic tie-breaking
+* Reason generation
+* Output validation
+
+---
+
+### Generated Deliverables
+
+The pipeline automatically generates:
+
+* `synapse_syndicate_output.csv`
+* `synapse_syndicate_output.xlsx`
+
+Both files are validated to ensure compliance with the competition submission requirements.
 
 ---
 
